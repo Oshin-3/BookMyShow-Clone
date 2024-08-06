@@ -30,10 +30,11 @@ const userSchema = new mongoose.Schema({
             message : "Password and Confirm Password must be same"
         }
     },
-    isAdmin : {
-        type : Boolean,
-        default : false,
-        required : true
+    role: {
+        type: String,
+        enum: ["admin", "user", "partner"],
+        required: true,
+        default: "user"
     }
 },
 {timestamps : true}

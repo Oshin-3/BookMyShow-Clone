@@ -47,6 +47,10 @@
   padding: 10px;
 }
 
+.px-10 {
+  padding: 50px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -54,6 +58,14 @@
 .text-color-red-header{
    color: #DF1827;
    font-weight: lighter;
+}
+
+.text-color-red{
+  color: #DF1827;
+}
+
+.text-color-blue{
+  color: #0047AB;
 }
 
 .card {
@@ -65,3 +77,13 @@
 .justify-content-between{
   justify-content: space-between;
  }
+
+ .justify-content-end{
+  display: flex;
+  justify-content:end;
+ }
+
+ .d-flex{
+  display: flex;
+ }
+

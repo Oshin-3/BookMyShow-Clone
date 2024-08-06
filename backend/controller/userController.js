@@ -69,6 +69,7 @@ const loginUser = async (req, res) => {
 //get users
 const getCurrentUser = async (req, res) => {
     const user = await UserModel.findById(req.body.userId).select('-password')
+    console.log(user)
     res.send({success: true, user: user, message: "You are authorized to go to the protected route"})
 }
 

@@ -19,7 +19,7 @@ function ProtectedRoutes({children}) {
       dispatch(showLoading())
       const response = await GetCurrentUser()
       
-      dispatch(setUsers(response.user.firstName))
+      dispatch(setUsers(response.user))
       dispatch(hideLoading())
     } catch (error) {
       console.log(error)
@@ -35,18 +35,21 @@ function ProtectedRoutes({children}) {
     else{
       navigate('/login')
     }
-  }, [users])
+  }, [])
 
+  console.log("role=> ", users.user.role)
   const navigateItem = [
-    {label: "Home", icon: <HomeOutlined/>},
-    {label: `${users ? users.user : ""}`, icon: <UserOutlined/>,
+    {label: <span onClick={() => {
+      navigate('/')
+    }}>Home</span>, icon: <HomeOutlined/>},
+    {label: `${users ? users.user.firstName : ""}`, icon: <UserOutlined/>,
     children: [
       {label: <span
         onClick={() => {
-          if (users.role == "admin"){
+          if (users.user.role == "admin"){
             navigate('/admin')
           }
-          else if (users.role == "partner"){
+          else if (users.user.role == "partner"){
             navigate('/partner')
           }
           else{
